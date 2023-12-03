@@ -9,7 +9,7 @@ struct CountsBySoH {
 
 struct CountsBySoH countBatteriesByHealth(const int* presentCapacities, int nBatteries) {
   struct CountsBySoH counts = {0, 0, 0};
-  for(int i=0;i<nBatteries;i++)// for each battery,we check the SoH%
+  for(int i=1;i<=nBatteries;i++)// for each battery,we check the SoH%
     {
       int SoH= 100*(presentCapacities[i]/120);
       // we check the category of the battery and classify it as healthy,exchange and failed
