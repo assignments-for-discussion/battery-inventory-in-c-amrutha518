@@ -9,14 +9,15 @@ struct CountsBySoH {
 
 struct CountsBySoH countBatteriesByHealth(const int* presentCapacities, int nBatteries) {
   struct CountsBySoH counts = {0, 0, 0};
-  for(int i=0;i<=nBatteries;i++)
+  for(int i=0;i<nBatteries;i++)// for each battery,we check the SoH%
     {
       int SoH= 100*(presentCapacities[i]/presentCapacities[0]);
-      if(100>=SoH>80)
+      // we check the category of the battery and classify it as healthy,exchange and failed
+      if(100>=SoH && SoH<80)
       {
         counts.healthy++;
       }
-      else if(80>=SoH>62)
+      else if(80>=SoH && SoH>62)
       {
         counts.exchange++;
       }
